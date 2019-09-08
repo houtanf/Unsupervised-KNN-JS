@@ -1,0 +1,29 @@
+{
+  "name": "unsupervised-knn",
+  "version": "0.1.0",
+  "description": "Algorithm for fetching the k nearest neighbors of an input vector through distance calculations.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "install": "neon build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/houtanf/Unsupervised-KNN.git"
+  },
+  "keywords": [
+    "Unsupervised",
+    "K-NearestNeighbors",
+    "Distance",
+    "Similarity"
+  ],
+  "author": "Houtan F <houtanfaridi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/houtanf/Unsupervised-KNN/issues"
+  },
+  "homepage": "https://github.com/houtanf/Unsupervised-KNN#readme"
+}
