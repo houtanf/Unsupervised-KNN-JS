@@ -1,5 +1,5 @@
 [package]
-name = "unsupervised-knn"
+name = "unsupervised-knn-js"
 version = "0.1.0"
 authors = ["Houtan F <houtanfaridi@gmail.com>"]
 license = "MIT"
