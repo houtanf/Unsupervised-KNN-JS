@@ -1,7 +1,8 @@
-const { euclideanKnn } = require('../lib/knn')
+const knn = require('../lib/knn')
 
+knnAlgos = ['euclidean']
 
-euclideanKnnTests = [
+knnTestCases = [
   [1, [{label: 'name', vector: [1, 2]}], [1, 2], [{label: 'name', distance: 0}]],
   [2, [{label: 'name', vector: [1, 2]}], [1, 2], [{label: 'name', distance: 0}]],
   [0, [{label: 'name', vector: [1, 2]}], [1, 2], []],
@@ -16,9 +17,14 @@ euclideanKnnTests = [
   [2, [{label: 'name', vector: [1, 4]}, {label: 'other', vector: [2, 2]}], [1, 2],
      [{label: 'other', distance: 1}, {label: 'name', distance: 2}]],
 ]
-test.each(euclideanKnnTests)('Test euclideanKnn on correct data', 
-  function(k, neighbors, target, expected) {
-    const output = euclideanKnn(k, neighbors, target)
+
+knnTests = knnAlgos.flatMap(algo => 
+   knnTestCases.map( test => [algo, ...test])
+)
+
+test.each(knnTests)('Test knn on correct data with %s algo', 
+  function(algo, k, neighbors, target, expected) {
+    const output = knn(algo, k, neighbors, target)
 
     expect(output).toEqual(expected)
   }
