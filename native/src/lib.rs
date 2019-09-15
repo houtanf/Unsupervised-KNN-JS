@@ -6,20 +6,47 @@ extern crate rayon;
 use neon::prelude::*;
 
 mod distance_computation;
+ use distance_computation::euclidean;
 mod knn;
  use knn::knn;
 
 
-fn euclidean_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
-    let k: u32 = cx.argument::<JsNumber>(0)?.value();
+fn euclidean_knn(cx: FunctionContext) -> JsResult<JsArray> {
+    run_knn(cx, euclidean)
+}
+
+
+fn run_knn(mut cx: FunctionContext, algo: fn(&Vec<f64>, &Vec<f64>) -> f64) -> JsResult<JsArray> {
+    let k: f64 = cx.argument::<JsNumber>(0)?.value();
     let neighbors_js = cx.argument::<JsArray>(1)?.to_vec(&mut cx)?;
     let target_js = cx.argument::<JsArray>(2)?.to_vec(&mut cx)?;
 
     let target = convert_target(target_js);
-    let neighbors = convert_neighbors(cx, neighbors_js);
 
-    let nearest_neighbors = knn(&target, &neighbors, k);
-    to_jsarray(cx, &nearest_neighbors)
+    let mut neighbors = Vec::new();
+    for val in neighbors_js.iter() {
+        let casted = val.downcast::<JsObject>().unwrap();
+        let label = casted.get(&mut cx, "label").unwrap()
+                          .downcast::<JsString>().unwrap()
+                          .value();
+        let vector = casted.get(&mut cx, "vector").unwrap()
+                           .downcast::<JsArray>().unwrap()
+                           .to_vec(&mut cx).unwrap();
+        neighbors.push( (label, convert_target(vector)) )
+    }
+
+    let nearest_neighbors = knn(algo, &target, k, &neighbors);
+
+    let array = JsArray::new(&mut cx, nearest_neighbors.len() as u32);
+    for (i, (label, dist)) in nearest_neighbors.into_iter().enumerate() {
+        let obj = JsObject::new(&mut cx);
+        let js_label = cx.string(label);
+        let js_dist = cx.number(dist);
+        obj.set(&mut cx, "label", js_label).unwrap();
+        obj.set(&mut cx, "distance", js_dist).unwrap();
+        array.set(&mut cx, i as u32, obj).unwrap();
+    }
+    Ok( array )
 }
 
 
@@ -28,31 +55,6 @@ fn convert_target(target: Vec<Handle<JsValue>>) -> Vec<f64> {
           .map(|val| val.downcast::<JsNumber>().unwrap() )
           .map(|val| val.value() )
           .collect()
-}
-
-
-fn convert_neighbors(mut cx: FunctionContext, neighbors: Vec<Handle<JsValue>>) -> Vec<(String, Vec<f64>)> {
-    neighbors.iter()
-             .map(|val| val.downcast::<JsObject>().unwrap() )
-             .map(|val| convert_object(cx, val) )
-             .collect()
-}
-
-
-fn convert_object(mut cx: FunctionContext, obj: Handle<JsObject>) -> (String, Vec<f64>) {
-    let label = obj.get(&mut cx, "label").unwrap()
-                   .downcast::<JsString>().unwrap()
-                   .value();
-    let vector = obj.get(&mut cx, "vector").unwrap()
-                    .downcast::<JsArray>().unwrap()
-                    .to_vec(&mut cx).unwrap();
-    (label, convert_target(vector))
-}
-
-
-fn to_jsarray(mut cx: FunctionContext, results: &Vec<(String, f64)>) -> JsResult<JsArray> {
-    //todo
-    Ok(cx.empty_array())
 }
 
 
