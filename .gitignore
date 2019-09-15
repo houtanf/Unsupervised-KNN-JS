@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+
+# Neon files
+native/artifacts.json
+native/index.node
+native/target/
+
