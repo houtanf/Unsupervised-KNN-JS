@@ -14,13 +14,17 @@
   "keywords": [
     "Unsupervised",
     "K-NearestNeighbors",
+    "KNN",
     "Distance",
     "Similarity"
   ],
-  "author": "Houtan F <houtanfaridi@gmail.com>",
+  "author": "houtanf",
   "license": "MIT",
   "dependencies": {
     "neon-cli": "^0.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   },
   "bugs": {
     "url": "https://github.com/houtanf/Unsupervised-KNN/issues"
