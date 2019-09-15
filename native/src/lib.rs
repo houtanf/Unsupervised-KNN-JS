@@ -8,11 +8,13 @@ use neon::prelude::*;
 mod knn_utils;
  use knn_utils::knn::knn;
 mod distances;
- use distances::distance_algos::euclidean;
+ use distances::distance_algos::get_algo;
 
 
-fn euclidean_knn(cx: FunctionContext) -> JsResult<JsArray> {
-    run_knn(cx, euclidean)
+fn default_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
+    let name: String = cx.argument::<JsString>(3)?.value();
+    let algo = get_algo(name).unwrap();
+    run_knn(cx, algo)
 }
 
 
@@ -59,5 +61,5 @@ fn convert_target(target: Vec<Handle<JsValue>>) -> Vec<f64> {
 
 
 register_module!(mut cx, {
-    cx.export_function("euclideanKnn", euclidean_knn)
+    cx.export_function("defaultKnn", default_knn)
 });
