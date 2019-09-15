@@ -17,9 +17,10 @@
     "Distance",
     "Similarity"
   ],
-  "author": "Houtan F <houtanfaridi@gmail.com>",
+  "author": "houtanf",
   "license": "MIT",
   "dependencies": {
+    "jest": "^24.9.0",
     "neon-cli": "^0.3.1"
   },
   "bugs": {
