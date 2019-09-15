@@ -1,5 +1,5 @@
 use rayon::prelude::*;
-use distance_computation::compute_distance;
+use super::distance_computation::compute_distance;
 
 
 pub fn knn(algo: fn(&Vec<f64>, &Vec<f64>) -> f64, target: &Vec<f64>, k: f64, neighbors: &Vec<(String, Vec<f64>)>) 

@@ -5,10 +5,10 @@ extern crate rayon;
 
 use neon::prelude::*;
 
-mod distance_computation;
- use distance_computation::euclidean;
-mod knn;
- use knn::knn;
+mod knn_utils;
+ use knn_utils::knn::knn;
+mod distances;
+ use distances::distance_algos::euclidean;
 
 
 fn euclidean_knn(cx: FunctionContext) -> JsResult<JsArray> {
