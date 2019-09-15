@@ -6,6 +6,7 @@ extern crate rayon;
 use neon::prelude::*;
 
 mod distance_computation;
+ use distance_computation::euclidean;
 mod knn;
  use knn::knn;
 
@@ -29,7 +30,7 @@ fn euclidean_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
         neighbors.push( (label, convert_target(vector)) )
     }
 
-    let nearest_neighbors = knn(&target, k, &neighbors);
+    let nearest_neighbors = knn(euclidean, &target, k, &neighbors);
 
     let array = JsArray::new(&mut cx, nearest_neighbors.len() as u32);
     for (i, (label, dist)) in nearest_neighbors.into_iter().enumerate() {
