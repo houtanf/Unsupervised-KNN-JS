@@ -37,7 +37,7 @@ fn run_knn(mut cx: FunctionContext, algo: fn(&Vec<f64>, &Vec<f64>) -> f64) -> Js
         neighbors.push( (label, convert_target(vector)) )
     }
 
-    let nearest_neighbors = knn(algo, &target, k, &neighbors);
+    let nearest_neighbors = knn(algo, &target, k, &neighbors).unwrap();
 
     let array = JsArray::new(&mut cx, nearest_neighbors.len() as u32);
     for (i, (label, dist)) in nearest_neighbors.into_iter().enumerate() {
