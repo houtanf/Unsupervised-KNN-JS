@@ -11,7 +11,12 @@ mod knn;
  use knn::knn;
 
 
-fn euclidean_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
+fn euclidean_knn(cx: FunctionContext) -> JsResult<JsArray> {
+    run_knn(cx, euclidean)
+}
+
+
+fn run_knn(mut cx: FunctionContext, algo: fn(&Vec<f64>, &Vec<f64>) -> f64) -> JsResult<JsArray> {
     let k: f64 = cx.argument::<JsNumber>(0)?.value();
     let neighbors_js = cx.argument::<JsArray>(1)?.to_vec(&mut cx)?;
     let target_js = cx.argument::<JsArray>(2)?.to_vec(&mut cx)?;
@@ -30,7 +35,7 @@ fn euclidean_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
         neighbors.push( (label, convert_target(vector)) )
     }
 
-    let nearest_neighbors = knn(euclidean, &target, k, &neighbors);
+    let nearest_neighbors = knn(algo, &target, k, &neighbors);
 
     let array = JsArray::new(&mut cx, nearest_neighbors.len() as u32);
     for (i, (label, dist)) in nearest_neighbors.into_iter().enumerate() {
