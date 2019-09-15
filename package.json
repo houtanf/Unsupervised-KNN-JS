@@ -2,7 +2,7 @@
   "name": "unsupervised-knn-js",
   "version": "0.1.0",
   "description": "Algorithm for fetching the k nearest neighbors of an input vector through distance calculations.",
-  "main": "lib/index.js",
+  "main": "lib/knn.js",
   "scripts": {
     "test": "jest",
     "install": "neon build"
