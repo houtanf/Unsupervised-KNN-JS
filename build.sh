@@ -1,2 +1,2 @@
-neon build --release
+neon build
 npm test
