@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/houtanf/Unsupervised-KNN.git"
   },
+  "files": [
+    "native/index.node",
+    "lib"
+  ],
   "keywords": [
     "Unsupervised",
     "K-NearestNeighbors",
