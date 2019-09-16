@@ -1,4 +1,6 @@
-const knn = require('../lib/knn')
+const { knn } = require('../lib/knn')
+
+
 knnAlgos = ['euclidean']
 
 knnTestCases = [
