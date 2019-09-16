@@ -1,15 +1,12 @@
 sudo: false
 os:
-  - windows
   - osx
   - linux
 
 language: node_js
 
 node_js:
-  - node
   - 11
-  - 10
 
 cache: cargo
 
