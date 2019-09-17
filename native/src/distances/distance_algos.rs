@@ -1,9 +1,9 @@
 
 
-pub fn get_algo(name: String) -> Result<fn(&Vec<f64>, &Vec<f64>) -> f64, String> {
+pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
   match name.to_lowercase().as_ref() {
-    "euclidean" => Ok( euclidean ),
-    _ => Err( format!("Algorithm {} not found\n", name) ),
+    "euclidean" => euclidean,
+    _ => panic!( "Algorithm {} not found", name),
   }
 }
 
