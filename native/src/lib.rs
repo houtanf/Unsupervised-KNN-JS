@@ -16,7 +16,7 @@ mod distances;
 
 fn default_knn(mut cx: FunctionContext) -> JsResult<JsArray> {
   let name: String = cx.argument::<JsString>(3)?.value();
-  let algo = get_algo(name).unwrap();
+  let algo = get_algo(name);
   run_knn(cx, algo)
 }
 
@@ -30,7 +30,7 @@ fn run_knn(mut cx: FunctionContext, algo: fn(&Vec<f64>, &Vec<f64>) -> f64) -> Js
   let neighbors = convert_neighbors(&mut cx, neighbors_js);
 
 
-  let nearest_neighbors = knn(algo, &target, k, &neighbors).unwrap();
+  let nearest_neighbors = knn(algo, &target, k, &neighbors);
 
   Ok( to_jsarray(cx, nearest_neighbors) )
 }
