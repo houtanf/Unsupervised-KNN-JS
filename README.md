@@ -1,6 +1,9 @@
 # Unsupervised-KNN-JS
 
 [![Build Status][travis-img]][travis-url]
+![Version][npm-version]
+![Code Size][code-size]
+[![License][license-img]](license-url)
 
 Algorithm for fetching the k nearest neighbors of an input vector through distance calculations.
 
@@ -107,6 +110,9 @@ This list is ordered in ascending order based on the distance field in each obje
   * Windows support (hopefully)
   * Parallel computations across multiple targets
 
-
-[travis-img]: https://flat.badgen.net//travis/houtanf/unsupervised-knn-js/master?
+[travis-img]: https://img.shields.io/travis/houtanf/unsupervised-knn-js?style=for-the-badge
 [travis-url]: https://travis-ci.org/houtanf/Unsupervised-KNN-JS
+[license-img]: https://img.shields.io/github/license/houtanf/unsupervised-knn-js?style=for-the-badge
+[license-url]: https://lbesson.mit-license.org/
+[npm-version]: https://img.shields.io/npm/v/unsupervised-knn-js?color=red&style=for-the-badge
+[code-size]: https://img.shields.io/github/languages/code-size/houtanf/unsupervised-knn-js?style=for-the-badge
