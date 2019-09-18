@@ -1,7 +1,3 @@
----
-author: houtanf
----
-
 # Unsupervised-KNN-JS
 
 [![Build Status][travis-img]][travis-url]
@@ -11,26 +7,26 @@ Algorithm for fetching the k nearest neighbors of an input vector through distan
 Algorithm computations are implemented in Rust for high perfromance and easy parallelism.
 
 ## Features
----
+
   * Parallelized distance computations
   * Fast native system processing
   * Out of the box JS support for Linux and OSX (Waiting on Windows)
 
 ## Install
----
+
 ```sh
 $ npm i unsupervised-knn-js
 ```
 
 ## Loading
----
+
 ```javascript
 const { knn } = require('unsupervised-knn-js')
 ```
 
 
 ## Example
----
+
 ```javascript
 > const { knn } = require('unsupervised-knn-js')
 
@@ -52,7 +48,7 @@ const { knn } = require('unsupervised-knn-js')
 ```
 
 ## Usage
----
+
 ### Parameters
 The knn function takes 4 parameters:
 
@@ -103,7 +99,7 @@ Each object has a label field for identification and a distance field which repr
 This list is ordered in ascending order based on the distance field in each object.
 
 ## Future Features
----
+
   * Plans to implement use of custom distance functions implemented by the user.
   * Addition of more distance functions
   * Windows support (hopefully)
