@@ -5,7 +5,7 @@
 ![Code Size][code-size]
 [![License][license-img]](license-url)
 
-Algorithm for fetching the k nearest neighbors of an input vector through distance calculations.
+Node.JS package for fetching the k nearest neighbors of an input vector through distance calculations.
 
 Algorithm computations are implemented in Rust for high perfromance and easy parallelism.
 
@@ -14,7 +14,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
   * Parallelized distance computations
   * Fast native system processing
   * Out of the box JS support for Linux and OSX (Waiting on Windows)
-      * For now Windows users will need to install Rust for npm to build required native components
+      * For now, Windows users will need to have Rust installed when downloading this package for npm to be able to build required native components
       * Pure JS implementation of the package might be made in the future for Windows users
 
 ## Install
