@@ -102,7 +102,7 @@ This list is ordered in ascending order based on the distance field in each obje
 
 ## Future Features
 
-  * Plans to implement use of custom distance functions implemented by the user.
+  * Plans to implement use of custom distance functions passed in by the user.
   * Addition of more distance functions
   * Windows support (hopefully)
   * Parallel computations across multiple targets
