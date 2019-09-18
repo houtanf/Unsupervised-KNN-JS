@@ -62,7 +62,7 @@ The knn function takes 4 parameters:
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
-      * So if k = 2, the 2 closests neoghbors to the target vector will be returned.
+      * So if k = 2, the 2 closests neighbors to the target vector will be returned.
   1. Neighbors
       * This is a list of objects where each object represents a neigbor or point
       * Each object should have a label and vector field as such:
