@@ -67,7 +67,7 @@ The knn function takes 4 parameters:
       * The amount of closest neighbors to the target point to return
       * So if k = 2, the 2 closests neighbors to the target vector will be returned.
   1. Neighbors
-      * This is a list of objects where each object represents a neigbor or point
+      * This is an array of objects where each object represents a neighbor or point
       * Each object should have a label and vector field as such:
         ```javascript
         {
@@ -75,7 +75,7 @@ The knn function takes 4 parameters:
           vector: [1, 3, 4.5, -4]
         }
         ```
-      * The following is a valid list of neighbors:
+      * The following is a valid array of neighbors:
         ```javascript
         const neighbors = [
           { label: 'some name', vector: [1, 2, 4, 5] },
@@ -85,13 +85,13 @@ The knn function takes 4 parameters:
         ```
   1. Target
       * This is the vector for which to find the closest or most similar points to
-      * This should be a list of numbers
+      * This should be a array of numbers
 
 These parameters were given this specific order based which paramaters would be most important for currying.
 
 ### Return
 
-The function returns a list of objects representing the closest points to the target.
+The function returns an array of objects representing the closest points to the target.
 
 Each object has a label field for identification and a distance field which represents it's difference from the target.
 ```javascript
