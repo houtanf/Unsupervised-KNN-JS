@@ -85,6 +85,7 @@ The knn function takes 4 parameters:
       * The current algorithms natively supported include:
           ```javascript
             'euclidean'
+            'cosine'
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
