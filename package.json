@@ -5,7 +5,9 @@
   "main": "lib/knn.js",
   "scripts": {
     "test": "jest",
-    "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
+    "install": "run-script-os",
+    "install:win32": "echo 'Installing from source, Rust is required' && neon build --release",
+    "install:default": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "package": "node-pre-gyp package",
     "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish"
   },
@@ -37,7 +39,8 @@
   "dependencies": {
     "neon-cli": "^0.3.1",
     "node-pre-gyp": "github:amilajack/node-pre-gyp",
-    "node-pre-gyp-github": "^1.4.3"
+    "node-pre-gyp-github": "^1.4.3",
+    "run-script-os": "^1.0.7"
   },
   "devDependencies": {
     "jest": "^24.9.0",
