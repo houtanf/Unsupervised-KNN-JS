@@ -1,21 +1,44 @@
 # Unsupervised-KNN-JS
 
 [![Build Status][travis-img]][travis-url]
-![Version][npm-version]
-![Code Size][code-size]
+[![Version][npm-version]][npm-url]
+[![Code Size][code-size]][github-url]
 [![License][license-img]](license-url)
 
 Node.JS package for fetching the k nearest neighbors of an input vector through distance calculations.
 
 Algorithm computations are implemented in Rust for high perfromance and easy parallelism.
 
+## Table of Contents
+
+<!-- TOC -->
+
+ - [Features](#features)
+ - [Future Features](#future-features)
+ - [Install](#install)
+ - [Loading](#loading)
+ - [Use Example](#example)
+ - [Usage](#usage)
+    - [Parameters](#parameters)
+    - [Return](#return)
+
+<!-- /TOC -->
+
+
 ## Features
 
   * Parallelized distance computations
   * Fast native system processing
-  * Out of the box JS support for Linux and OSX (Waiting on Windows)
-      * For now, Windows users will need to have Rust installed when downloading this package for npm to be able to build required native components
+  * Out of the box JavaScript usage on Linux and OSX (Waiting on Windows support)
+      * For now, Windows users will need to have Rust installed when downloading this package so npm can build required native components
       * Pure JS implementation of the package might be made in the future for Windows users
+
+## Future Features
+
+  * Plans to implement use of custom distance functions passed in by the user.
+  * More native distance functions
+  * Native Windows support
+  * Parallel computations across multiple targets
 
 ## Install
 
@@ -87,7 +110,6 @@ The knn function takes 4 parameters:
       * This is the vector for which to find the closest or most similar points to
       * This should be a array of numbers
 
-These parameters were given this specific order based which paramaters would be most important for currying.
 
 ### Return
 
@@ -103,16 +125,12 @@ Each object has a label field for identification and a distance field which repr
 
 This list is ordered in ascending order based on the distance field in each object.
 
-## Future Features
-
-  * Plans to implement use of custom distance functions passed in by the user.
-  * Addition of more distance functions
-  * Windows support (hopefully)
-  * Parallel computations across multiple targets
 
 [travis-img]: https://img.shields.io/travis/houtanf/unsupervised-knn-js?style=for-the-badge
 [travis-url]: https://travis-ci.org/houtanf/Unsupervised-KNN-JS
 [license-img]: https://img.shields.io/github/license/houtanf/unsupervised-knn-js?style=for-the-badge
-[license-url]: https://lbesson.mit-license.org/
+[license-url]: https://github.com/houtanf/Unsupervised-KNN-JS/blob/master/LICENSE
 [npm-version]: https://img.shields.io/npm/v/unsupervised-knn-js?color=red&style=for-the-badge
 [code-size]: https://img.shields.io/github/languages/code-size/houtanf/unsupervised-knn-js?style=for-the-badge
+[npm-url]: https://www.npmjs.com/package/unsupervised-knn-js
+[github-url]: https://github.com/houtanf/Unsupervised-KNN-JS
