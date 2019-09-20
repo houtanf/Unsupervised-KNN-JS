@@ -1,5 +1,6 @@
 sudo: false
 os:
+  - windows
   - osx
   - linux
 
@@ -19,7 +20,7 @@ before_install:
   - curl https://sh.rustup.rs -sSf > /tmp/rustup.sh
   - sh /tmp/rustup.sh -y
   - export PATH="$HOME/.cargo/bin:$PATH"
-  - source "$HOME/.cargo/env"
+  - source "$HOME/.cargo/env" || true
   # Install NPM packages
   - node -v
   - npm -v
