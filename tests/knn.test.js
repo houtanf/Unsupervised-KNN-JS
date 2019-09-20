@@ -18,9 +18,9 @@ knnTestCases = [
      [{label: 'other', distance: 0}]],
 ]
 
-knnTests = knnAlgos.flatMap(algo => 
+knnTests = knnAlgos.map(algo => 
    knnTestCases.map( test => [algo, ...test])
-)
+).reduce((x, y) => x.concat(y), [])
 
 test.each(knnTests)('Test knn on correct data with %s algo, %d %o %o %o input', 
   function(algo, k, neighbors, target, expected) {
