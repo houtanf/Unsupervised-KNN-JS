@@ -29,15 +29,12 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 
   * Parallelized distance computations
   * Fast native system processing
-  * Out of the box JavaScript usage on Linux and OSX (Waiting on Windows support)
-      * For now, Windows users will need to have Rust installed when downloading this package so npm can build required native components
-      * Pure JS implementation of the package might be made in the future for Windows users
+  * Out of the box JavaScript support on Linux, OSX, and Windows
 
 ## Future Features
 
   * Plans to implement use of custom distance functions passed in by the user.
   * More native distance functions
-  * Native Windows support
   * Parallel computations across multiple targets
 
 ## Install
