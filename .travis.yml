@@ -23,6 +23,7 @@ before_install:
   # Install NPM packages
   - node -v
   - npm -v
+  - npm install -g yarn
   - npm install
 
 script:
