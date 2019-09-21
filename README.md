@@ -81,9 +81,9 @@ The knn function takes 4 parameters:
             'cosine'    // Cosine Distance
             'mse'       // Mean-Squared-Error 
             'manhattan' // Sum of Absolute Difference
-            'chebyshev' //L-Infinite Norm Difference
-            'canberra' // Weighted Manhatten Distance
-            'hamming' // Binary Difference
+            'chebyshev' // L-Infinite Norm Difference
+            'canberra'  // Weighted Manhatten Distance
+            'hamming'   // Binary Difference
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
@@ -123,6 +123,77 @@ Each object has a label field for identification and a distance field which repr
 ```
 
 This list is ordered in ascending order based on the distance field in each object.
+
+
+## Distance Comparisions
+
+Here is an example of the same data run against different distance functions
+
+```javascript
+> const { knn } = require('unsupervised-knn-js')
+> const neighbors =[
+  { label: 'some name', vector: [1, 2, 4, 5] },
+  { label: 'another name', vector: [4, 4, 4, 5] },
+  { label: 'name 3', vector: [14, 4, 13, 2] },
+]
+> const target = [1, 2, 3, 4]
+
+> // Euclidean
+> knn('euclidean', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1.4142135623730951 },
+  { label: 'another name', distance: 3.872983346207417 },
+  { label: 'name 3', distance: 16.64331697709324 }
+]
+
+> // Cosine
+> knn('cosine', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.003993481192393733 },
+  { label: 'another name', distance: 0.059777545024485734 },
+  { label: 'name 3', distance: 0.35796589482505503 }
+]
+
+> // Mean-Squared-Error
+> knn('mse', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.5 },
+  { label: 'another name', distance: 3.75 },
+  { label: 'name 3', distance: 69.25 }
+]
+
+> // Manhattan
+> knn('manhattan', 3, neighbors, target)
+[
+  { label: 'some name', distance: 2 },
+  { label: 'another name', distance: 7 },
+  { label: 'name 3', distance: 27 }
+]
+
+> // Chebyshev
+> knn('chebyshev', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1 },
+  { label: 'another name', distance: 3 },
+  { label: 'name 3', distance: 13 }
+]
+
+> // Canberra
+> knn('canberra', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.25396825396825395 },
+  { label: 'another name', distance: 1.1873015873015873 },
+  { label: 'name 3', distance: 2.158333333333333 }
+]
+
+> // Hamming
+> knn('hamming', 3, neighbors, target)
+[
+  { label: 'some name', distance: 2 },
+  { label: 'another name', distance: 4 },
+  { label: 'name 3', distance: 4 }
+]
+```
 
 
 ## Future Features
