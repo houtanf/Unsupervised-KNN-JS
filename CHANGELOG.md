@@ -1,10 +1,14 @@
 # Changelog
 
+  - [v2.3.1](#2.3.1)
   - [v2.3.0](#2.3.0)
   - [v2.2.2](#2.2.2)
 
 # Changes
 
+## [2.3.1] - 2019-09-21 <a name="2.3.1"></a>
+### Added
+  - Added distance comparison examples to readme
 
 ## [2.3.0] - 2019-09-21 <a name="2.3.0"></a>
 ### Added
