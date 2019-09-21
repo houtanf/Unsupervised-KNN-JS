@@ -4,7 +4,15 @@ expect.extend({ toMatchCloseTo })
 const { knn } = require('../lib/knn')
 
 
-knnAlgos = ['euclidean', 'cosine']
+knnAlgos = [
+  'euclidean',
+  'cosine',
+  'mse',
+  'manhattan',
+  'chebyshev',
+  'canberra',
+  'hamming',
+]
 
 knnTestCases = [
   [1, [{label: 'name', vector: [1, 2]}], [1, 2], [{label: 'name', distance: 0}]],
