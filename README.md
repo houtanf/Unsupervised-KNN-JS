@@ -1,7 +1,7 @@
 # Unsupervised-KNN-JS
 
 [![Build Status][travis-img]][travis-url]
-![Code Coverage][coveralls-url]
+[![Code Coverage][coveralls-img]][coveralls-url]
 [![Version][npm-version]][npm-url]
 [![Code Size][code-size]][github-url]
 [![License][license-img]][license-url]
@@ -222,4 +222,5 @@ Here is an example of the same data run against different distance functions
 [npm-url]: https://www.npmjs.com/package/unsupervised-knn-js
 [github-url]: https://github.com/houtanf/Unsupervised-KNN-JS
 [changelog-url]: https://github.com/houtanf/Unsupervised-KNN-JS/blob/master/CHANGELOG.md
-[coveralls-url]: https://img.shields.io/coveralls/github/houtanf/Unsupervised-KNN-JS?style=for-the-badge
+[coveralls-img]: https://img.shields.io/coveralls/github/houtanf/Unsupervised-KNN-JS?style=for-the-badge
+[coveralls-url]: https://coveralls.io/github/houtanf/Unsupervised-KNN-JS?branch=master
