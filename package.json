@@ -8,8 +8,15 @@
     "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "package": "node-pre-gyp package",
     "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
-    "prepublishOnly": "neon clean"
+    "prepublish": "neon clean",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+   ]
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/houtanf/Unsupervised-KNN-JS.git"
