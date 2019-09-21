@@ -33,9 +33,11 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 
 ## Future Features
 
-  * Plans to implement use of custom distance functions passed in by the user.
+  * Plans to implement use of custom distance functions passed in by the user
   * More native distance functions
   * Parallel computations across multiple targets
+
+  Ideas and suggestions are welcome!
 
 ## Install
 
