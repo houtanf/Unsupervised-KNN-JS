@@ -3,7 +3,7 @@
 [![Build Status][travis-img]][travis-url]
 [![Version][npm-version]][npm-url]
 [![Code Size][code-size]][github-url]
-[![License][license-img]](license-url)
+[![License][license-img]][license-url]
 
 Node.JS package for fetching the k nearest neighbors of an input vector through distance calculations.
 
@@ -14,13 +14,14 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 <!-- TOC -->
 
  - [Features](#features)
- - [Future Features](#future-features)
  - [Install](#install)
  - [Loading](#loading)
  - [Use Example](#example)
  - [Usage](#usage)
     - [Parameters](#parameters)
     - [Return](#return)
+ - [Future Features](#future-features)
+ - [Changes](#changes)
 
 <!-- /TOC -->
 
@@ -30,14 +31,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
   * Parallelized distance computations
   * Fast native system processing
   * Out of the box JavaScript support on Linux, OSX, and Windows
-
-## Future Features
-
-  * Plans to implement use of custom distance functions passed in by the user
-  * More native distance functions
-  * Parallel computations across multiple targets
-
-  Ideas and suggestions are welcome!
+  * Support for Node 8, 9, 10, 11, and 12
 
 ## Install
 
@@ -131,6 +125,21 @@ Each object has a label field for identification and a distance field which repr
 This list is ordered in ascending order based on the distance field in each object.
 
 
+## Future Features
+
+  * Plans to implement use of custom distance functions passed in by the user
+  * More native distance functions
+  * Parallel computations across multiple targets
+
+  Ideas and suggestions are welcome!
+
+
+## Changes
+
+  For changes please see the [Changelog][changelog-url]
+
+
+
 [travis-img]: https://img.shields.io/travis/houtanf/unsupervised-knn-js?style=for-the-badge
 [travis-url]: https://travis-ci.org/houtanf/Unsupervised-KNN-JS
 [license-img]: https://img.shields.io/github/license/houtanf/unsupervised-knn-js?style=for-the-badge
@@ -139,3 +148,4 @@ This list is ordered in ascending order based on the distance field in each obje
 [code-size]: https://img.shields.io/github/languages/code-size/houtanf/unsupervised-knn-js?style=for-the-badge
 [npm-url]: https://www.npmjs.com/package/unsupervised-knn-js
 [github-url]: https://github.com/houtanf/Unsupervised-KNN-JS
+[changelog-url]: https://github.com/houtanf/Unsupervised-KNN-JS/blob/master/CHANGELOG.md
