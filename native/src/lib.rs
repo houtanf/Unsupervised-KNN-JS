@@ -1,6 +1,5 @@
 #[macro_use]
 extern crate neon;
-extern crate num;
 extern crate rayon;
 
 use neon::prelude::*;
