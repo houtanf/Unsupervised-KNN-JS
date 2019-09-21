@@ -1,6 +1,5 @@
 #[macro_use]
 extern crate neon;
-extern crate num;
 extern crate rayon;
 
 use neon::prelude::*;
@@ -28,7 +27,6 @@ fn run_knn(mut cx: FunctionContext, algo: fn(&Vec<f64>, &Vec<f64>) -> f64) -> Js
 
   let target = convert_target(target_js);
   let neighbors = convert_neighbors(&mut cx, neighbors_js);
-
 
   let nearest_neighbors = knn(algo, &target, k, &neighbors);
 

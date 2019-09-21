@@ -1,8 +1,8 @@
-use num::Float;
+use std::cmp::PartialOrd;
 
 
-pub fn compute_distance<F: Float>
-  (algo: impl Fn(&Vec<F>, &Vec<F>) -> F, target: &Vec<F>, (label, vector): &(String, Vec<F>)) 
+pub fn compute_distance<V, F: PartialOrd>
+  (algo: impl Fn(&V, &V) -> F, target: &V, (label, vector): &(String, V)) 
   -> (String, F) {
     (label.clone(), algo(target, &vector))
 }

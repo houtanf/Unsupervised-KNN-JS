@@ -81,10 +81,15 @@ The knn function takes 4 parameters:
 
   1. Algorithm String
       * This is the algorithm which computes distances between the target and all neighbors
-      * The current algorithms natively supported include:
+      * The current algorithms natively supported are:
           ```javascript
-            'euclidean'
-            'cosine'
+            'euclidean' // L2 Norm Difference
+            'cosine'    // Cosine Distance
+            'mse'       // Mean-Squared-Error 
+            'manhattan' // Sum of Absolute Difference
+            'chebyshev' //L-Infinite Norm Difference
+            'canberra' // Weighted Manhatten Distance
+            'hamming' // Binary Difference
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
