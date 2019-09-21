@@ -20,6 +20,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
  - [Usage](#usage)
     - [Parameters](#parameters)
     - [Return](#return)
+ - [Distance Comparisons](#distance-comparisons)
  - [Future Features](#future-features)
  - [Changes](#changes)
 
@@ -125,7 +126,7 @@ Each object has a label field for identification and a distance field which repr
 This list is ordered in ascending order based on the distance field in each object.
 
 
-## Distance Comparisions
+## Distance Comparisons
 
 Here is an example of the same data run against different distance functions
 
