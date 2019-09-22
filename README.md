@@ -32,6 +32,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 
   * Parallelized distance computations
   * Fast native system processing
+  * Several popular distance metrics
   * Out of the box JavaScript support on Linux, OSX, and Windows
   * Support for Node 8, 9, 10, 11, and 12
 
@@ -82,10 +83,10 @@ The knn function takes 4 parameters:
             'euclidean' // L2 Norm Difference
             'cosine'    // Cosine Distance
             'mse'       // Mean-Squared-Error 
-            'manhattan' // Sum of Absolute Difference
+            'manhattan' // Sum of Absolute Differences
             'chebyshev' // L-Infinite Norm Difference
             'canberra'  // Weighted Manhatten Distance
-            'hamming'   // Binary Difference
+            'hamming'   // Sum of Binary Differences
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
@@ -133,7 +134,7 @@ Here is an example of the same data run against different distance functions
 
 ```javascript
 > const { knn } = require('unsupervised-knn-js')
-> const neighbors =[
+> const neighbors = [
   { label: 'some name', vector: [1, 2, 4, 5] },
   { label: 'another name', vector: [4, 4, 4, 5] },
   { label: 'name 3', vector: [14, 4, 13, 2] },
