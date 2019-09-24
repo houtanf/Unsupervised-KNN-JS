@@ -10,6 +10,9 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
     "chebyshev" => chebyshev,
     "canberra" => canberra,
     "hamming" => hamming,
+    "L3" => |target, neighbor| minkowski(3.0, target, neighbor),
+    "L4" => |target, neighbor| minkowski(4.0, target, neighbor),
+    "L5" => |target, neighbor| minkowski(5.0, target, neighbor),
     _ => panic!( "Algorithm {} not found", name),
   }
 }
@@ -71,4 +74,13 @@ fn hamming(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
         .zip(neighbor)
         .map( |(t, n)| if t != n { 1.0 } else { 0.0 } )
         .sum()
+}
+
+
+fn minkowski(p: f64, target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  target.iter()
+        .zip(neighbor)
+        .map( |(t, n)| (t - n).powf(p) )
+        .sum::<f64>()
+        .powf( 1.0 / p )
 }

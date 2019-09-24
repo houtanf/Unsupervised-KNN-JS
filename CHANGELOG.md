@@ -1,10 +1,16 @@
 # Changelog
 
+  - [v2.4.0](#2.4.0)
   - [v2.3.0](#2.3.0)
     - [v2.3.1](#2.3.1)
   - [v2.2.2](#2.2.2)
 
 # Changes
+
+## [2.3.0] - 2019-09-21 <a name="2.3.0"></a>
+### Added
+  - Added L3, L4, and L5 distance metrics
+  - Added new distance functions to test pipeline
 
 ## [2.3.1] - 2019-09-21 <a name="2.3.1"></a>
 ### Added
