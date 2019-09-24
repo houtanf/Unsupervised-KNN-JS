@@ -1,4 +1,4 @@
-use super::vector_utils::{ dot_product, norm };
+use super::vector_utils::{ dot_product, norm, mean, std, covariance };
 
 
 pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
@@ -10,6 +10,10 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
     "chebyshev" => chebyshev,
     "canberra" => canberra,
     "hamming" => hamming,
+    "l3" => |target, neighbor| minkowski(3.0, target, neighbor),
+    "l4" => |target, neighbor| minkowski(4.0, target, neighbor),
+    "l5" => |target, neighbor| minkowski(5.0, target, neighbor),
+    "pearson" => pearson_distance,
     _ => panic!( "Algorithm {} not found", name),
   }
 }
@@ -18,7 +22,7 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
 fn euclidean(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   target.iter()
         .zip(neighbor)
-        .map( |(t, n)| (t - n).powf(2.0) )
+        .map( |(t, n)| (t - n).powi(2) )
         .sum::<f64>()
         .sqrt()
 }
@@ -35,7 +39,7 @@ fn cosine_distance(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
 fn mean_square_error(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   target.iter()
         .zip(neighbor)
-        .map( |(t, n)| (t - n).powf(2.0) )
+        .map( |(t, n)| (t - n).powi(2) )
         .sum::<f64>() 
         / target.len() as f64
 }
@@ -71,4 +75,23 @@ fn hamming(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
         .zip(neighbor)
         .map( |(t, n)| if t != n { 1.0 } else { 0.0 } )
         .sum()
+}
+
+
+fn minkowski(p: f64, target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  target.iter()
+        .zip(neighbor)
+        .map( |(t, n)| (t - n).abs().powi(p as i32) )
+        .sum::<f64>()
+        .powf( 1.0 / p )
+}
+
+fn pearson_distance(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  let mean_target = mean(target);
+  let mean_neighbor = mean(neighbor);
+  let std_target = std(mean_target, target);
+  let std_neighbor = std(mean_neighbor, neighbor);
+  let cov = covariance(mean_target, mean_neighbor, target, neighbor);
+
+  1.0 - ( cov / (std_target * std_neighbor) )
 }
