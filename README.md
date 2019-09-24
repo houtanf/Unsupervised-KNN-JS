@@ -73,6 +73,7 @@ const { knn } = require('unsupervised-knn-js')
 
 ## Usage
 
+
 ### Parameters
 The knn function takes 4 parameters:
 
