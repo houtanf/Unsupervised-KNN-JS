@@ -7,7 +7,7 @@
 
 # Changes
 
-## [2.3.0] - 2019-09-21 <a name="2.3.0"></a>
+## [2.4.0] - 2019-09-24 <a name="2.4.0"></a>
 ### Added
   - Added L3, L4, and L5 distance metrics
   - Added Pearson Correlation distance Metric
