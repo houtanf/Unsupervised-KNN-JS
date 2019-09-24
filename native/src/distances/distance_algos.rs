@@ -1,4 +1,4 @@
-use super::vector_utils::{ dot_product, norm };
+use super::vector_utils::{ dot_product, norm, mean, std, covariance };
 
 
 pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
@@ -13,6 +13,7 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
     "l3" => |target, neighbor| minkowski(3.0, target, neighbor),
     "l4" => |target, neighbor| minkowski(4.0, target, neighbor),
     "l5" => |target, neighbor| minkowski(5.0, target, neighbor),
+    "pearson" => pearson_distance,
     _ => panic!( "Algorithm {} not found", name),
   }
 }
@@ -83,4 +84,14 @@ fn minkowski(p: f64, target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
         .map( |(t, n)| (t - n).abs().powi(p as i32) )
         .sum::<f64>()
         .powf( 1.0 / p )
+}
+
+fn pearson_distance(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  let mean_target = mean(target);
+  let mean_neighbor = mean(neighbor);
+  let std_target = std(mean_target, target);
+  let std_neighbor = std(mean_neighbor, neighbor);
+  let cov = covariance(mean_target, mean_neighbor, target, neighbor);
+
+  1.0 - ( cov / (std_target * std_neighbor) )
 }
