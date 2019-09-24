@@ -1,2 +1,0 @@
-neon build
-npm test
