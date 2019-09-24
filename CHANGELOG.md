@@ -13,6 +13,8 @@
   - Added Pearson Correlation distance Metric
   - Added mean, std, and covariance vector functions
   - Added new distance functions to test pipeline
+  - Added new distances to readme
+  - Added distance examples to readme
   - Added npm build and build-test scripts
 
 ### Removed

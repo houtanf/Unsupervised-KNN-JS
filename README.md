@@ -87,6 +87,10 @@ The knn function takes 4 parameters:
             'chebyshev' // L-Infinite Norm Difference
             'canberra'  // Weighted Manhatten Distance
             'hamming'   // Sum of Binary Differences
+            'L3'        // L3 Norm Difference
+            'L4'        // L4 Norm Difference
+            'L5'        // L5 Norm Difference
+            'pearson'   // Pearson Correlation Distance
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
@@ -195,6 +199,38 @@ Here is an example of the same data run against different distance functions
   { label: 'some name', distance: 2 },
   { label: 'another name', distance: 4 },
   { label: 'name 3', distance: 4 }
+]
+
+// L3 Norm Difference
+> knn('L3', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1.2599210498948732 },
+  { label: 'another name', distance: 3.332221851645953 },
+  { label: 'name 3', distance: 14.756054203376182 }
+]
+
+// L4 Norm Difference
+> knn('L4', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1.189207115002721 },
+  { label: 'another name', distance: 3.1543421455299043 },
+  { label: 'name 3', distance: 14.016098305349052 }
+]
+
+// L5 Norm Difference
+> knn('L5', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1.148698354997035 },
+  { label: 'another name', distance: 3.0796116495812957 },
+  { label: 'name 3', distance: 13.635466232760923 }
+]
+
+// Pearson Correlation Distance
+> knn('pearson', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.010050506338833642 },
+  { label: 'another name', distance: 0.2254033307585166 },
+  { label: 'name 3', distance: 1.5685785754425927 }
 ]
 ```
 
