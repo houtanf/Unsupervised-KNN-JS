@@ -15,6 +15,7 @@ knnAlgos = [
   'L3',
   'L4',
   'L5',
+  'pearson',
 ]
 
 knnTestCases = [
@@ -25,7 +26,7 @@ knnTestCases = [
      [{label: 'name', distance: 0}, {label: 'other', distance: 0}]],
   [1, [{label: 'name', vector: [1, 2]}, {label: 'other', vector: [3, 2]}], [1, 2],
      [{label: 'name', distance: 0}]],
-  [1, [{label: 'name', vector: [1, 4]}, {label: 'other', vector: [1, 2]}], [1, 2],
+  [1, [{label: 'name', vector: [5, 4]}, {label: 'other', vector: [1, 2]}], [1, 2],
      [{label: 'other', distance: 0}]],
 ]
 

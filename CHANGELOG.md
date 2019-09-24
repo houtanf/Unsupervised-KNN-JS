@@ -10,7 +10,16 @@
 ## [2.3.0] - 2019-09-21 <a name="2.3.0"></a>
 ### Added
   - Added L3, L4, and L5 distance metrics
+  - Added Pearson Correlation distance Metric
+  - Added mean, std, and covariance vector functions
   - Added new distance functions to test pipeline
+  - Added npm build and build-test scripts
+
+### Removed
+  - Removed build.sh, run build + test using `npm run build-test`
+
+### Changed
+  - Changed powf to powi where possible for efficiency
 
 ## [2.3.1] - 2019-09-21 <a name="2.3.1"></a>
 ### Added
