@@ -10,7 +10,7 @@ pub fn dot_product(a: &Vec<f64>, b: &Vec<f64>) -> f64 {
 
 pub fn norm(vector: &Vec<f64>) -> f64 {
   vector.iter()
-        .map( |n| n.powf(2.0) )
+        .map( |n| n.powi(2) )
         .sum::<f64>()
         .sqrt()
 }

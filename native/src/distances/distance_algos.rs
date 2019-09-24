@@ -21,7 +21,7 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
 fn euclidean(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   target.iter()
         .zip(neighbor)
-        .map( |(t, n)| (t - n).powf(2.0) )
+        .map( |(t, n)| (t - n).powi(2) )
         .sum::<f64>()
         .sqrt()
 }
@@ -38,7 +38,7 @@ fn cosine_distance(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
 fn mean_square_error(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   target.iter()
         .zip(neighbor)
-        .map( |(t, n)| (t - n).powf(2.0) )
+        .map( |(t, n)| (t - n).powi(2) )
         .sum::<f64>() 
         / target.len() as f64
 }
@@ -80,7 +80,7 @@ fn hamming(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
 fn minkowski(p: f64, target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   target.iter()
         .zip(neighbor)
-        .map( |(t, n)| (t - n).abs().powf(p) )
+        .map( |(t, n)| (t - n).abs().powi(p as i32) )
         .sum::<f64>()
         .powf( 1.0 / p )
 }
