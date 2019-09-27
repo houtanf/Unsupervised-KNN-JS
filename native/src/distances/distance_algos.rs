@@ -14,6 +14,9 @@ pub fn get_algo(name: String) -> fn(&Vec<f64>, &Vec<f64>) -> f64 {
     "l4" => |target, neighbor| minkowski(4.0, target, neighbor),
     "l5" => |target, neighbor| minkowski(5.0, target, neighbor),
     "pearson" => pearson_distance,
+    "sum_of_sqrd_diff" => sum_of_sqrd_diff,
+    "mae" => mean_abs_error,
+    "l10" => |target, neighbor| minkowski(10.0, target, neighbor),
     _ => panic!( "Algorithm {} not found", name),
   }
 }
@@ -94,4 +97,19 @@ fn pearson_distance(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
   let cov = covariance(mean_target, mean_neighbor, target, neighbor);
 
   1.0 - ( cov / (std_target * std_neighbor) )
+}
+
+fn sum_of_sqrd_diff(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  target.iter()
+        .zip(neighbor)
+        .map( |(t, n)| (t - n).powi(2) )
+        .sum::<f64>()
+}
+
+fn mean_abs_error(target: &Vec<f64>, neighbor: &Vec<f64>) -> f64 {
+  target.iter()
+        .zip(neighbor)
+        .map( |(t, n)| (t - n).abs() )
+        .sum::<f64>() 
+        / target.len() as f64
 }
