@@ -32,6 +32,7 @@ before_install:
   - npm install
 
 script:
+  - neon build --release
   - npm test
   - npm run coveralls || true
   # Publish when using '[publish binary]' keywords
