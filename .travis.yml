@@ -32,8 +32,7 @@ before_install:
   - npm install
 
 script:
-  - neon build --release
-  - npm test
+  - npm run build-test
   - npm run coveralls || true
   # Publish when using '[publish binary]' keywords
   - COMMIT_MESSAGE=$(git log --format=%B --no-merges -n 1 | tr -d '\n')
