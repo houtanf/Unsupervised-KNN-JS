@@ -11,7 +11,7 @@
     "prepublishOnly": "neon clean",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "neon clean && neon build --release",
-    "build-test": "npm run build && npm test"
+    "build-test": "neon clean && neon build && npm test"
   },
   "jest": {
     "collectCoverage": true,
