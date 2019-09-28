@@ -16,7 +16,7 @@ knnAlgos = [
   'L4',
   'L5',
   'pearson',
-  'sum_of_sqrd_diff',
+  'ssd',
   'mae',
   'l10'
 ]
