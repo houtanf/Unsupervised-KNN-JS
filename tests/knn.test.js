@@ -7,18 +7,18 @@ const { knn } = require('../lib/knn')
 knnAlgos = [
   'euclidean',
   'cosine',
+  'mae',
   'mse',
   'manhattan',
+  'ssd',
   'chebyshev',
   'canberra',
   'hamming',
   'L3',
   'L4',
   'L5',
+  'L10',
   'pearson',
-  'ssd',
-  'mae',
-  'l10'
 ]
 
 knnTestCases = [

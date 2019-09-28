@@ -81,20 +81,20 @@ The knn function takes 4 parameters:
       * This is the algorithm which computes distances between the target and all neighbors
       * The current algorithms natively supported are:
           ```javascript
-            'euclidean'         // L2 Norm Difference
-            'cosine'            // Cosine Distance
-            'mse'               // Mean-Squared-Error 
-            'manhattan'         // Sum of Absolute Differences
-            'chebyshev'         // L-Infinite Norm Difference
-            'canberra'          // Weighted Manhatten Distance
-            'hamming'           // Sum of Binary Differences
-            'L3'                // L3 Norm Difference
-            'L4'                // L4 Norm Difference
-            'L5'                // L5 Norm Difference
-            'pearson'           // Pearson Correlation Distance
-            'sum_of_sqrd_diff'  // Sum of squared difference
-            'mae'               // Mean-Absolute-Error
-            'L10'               // L10 Norm Difference
+            'euclidean'  // L2 Norm Difference
+            'cosine'     // Cosine Distance
+            'mae'        // Mean-Absolute-Error
+            'mse'        // Mean-Squared-Error 
+            'manhattan'  // Sum of Absolute Differences
+            'ssd'        // Sum of Squared Differences
+            'chebyshev'  // L-Infinite Norm Difference
+            'canberra'   // Weighted Manhatten Distance
+            'hamming'    // Sum of Binary Differences
+            'L3'         // L3 Norm Difference
+            'L4'         // L4 Norm Difference
+            'L5'         // L5 Norm Difference
+            'L10'        // L10 Norm Difference
+            'pearson'    // Pearson Correlation Distance
           ```
   1. K-Value
       * The amount of closest neighbors to the target point to return
@@ -165,6 +165,14 @@ Here is an example of the same data run against different distance functions
   { label: 'name 3', distance: 0.35796589482505503 }
 ]
 
+> // Mean-Absolute-Error 
+> knn('mae', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.5 },
+  { label: 'another name', distance: 1.75 },
+  { label: 'name 2', distance: 6.75 }
+]
+
 > // Mean-Squared-Error
 > knn('mse', 3, neighbors, target)
 [
@@ -179,6 +187,14 @@ Here is an example of the same data run against different distance functions
   { label: 'some name', distance: 2 },
   { label: 'another name', distance: 7 },
   { label: 'name 3', distance: 27 }
+]
+
+> // Sum of Squared Differences
+> knn('ssd', 3, neighbors, target)
+[
+  { label: 'some name', distance: 2 },
+  { label: 'another name', distance: 15 },
+  { label: 'name 2', distance: 277 }
 ]
 
 > // Chebyshev
@@ -205,7 +221,7 @@ Here is an example of the same data run against different distance functions
   { label: 'name 3', distance: 4 }
 ]
 
-// L3 Norm Difference
+> // L3 Norm Difference
 > knn('L3', 3, neighbors, target)
 [
   { label: 'some name', distance: 1.2599210498948732 },
@@ -213,7 +229,7 @@ Here is an example of the same data run against different distance functions
   { label: 'name 3', distance: 14.756054203376182 }
 ]
 
-// L4 Norm Difference
+> // L4 Norm Difference
 > knn('L4', 3, neighbors, target)
 [
   { label: 'some name', distance: 1.189207115002721 },
@@ -221,7 +237,7 @@ Here is an example of the same data run against different distance functions
   { label: 'name 3', distance: 14.016098305349052 }
 ]
 
-// L5 Norm Difference
+> // L5 Norm Difference
 > knn('L5', 3, neighbors, target)
 [
   { label: 'some name', distance: 1.148698354997035 },
@@ -229,36 +245,20 @@ Here is an example of the same data run against different distance functions
   { label: 'name 3', distance: 13.635466232760923 }
 ]
 
-// Pearson Correlation Distance
-> knn('pearson', 3, neighbors, target)
-[
-  { label: 'some name', distance: 0.010050506338833642 },
-  { label: 'another name', distance: 0.2254033307585166 },
-  { label: 'name 3', distance: 1.5685785754425927 }
-]
-
-// Sum of squared difference
-> knn('sum_of_sqrd_diff', 3, neighbors, target)
-[
-  { label: 'some name', distance: 2 },
-  { label: 'another name', distance: 15 },
-  { label: 'name 2', distance: 277 }
-]
-
-// Mean-Absolute-Error 
-> knn('mae', 3, neighbors, target)
-[
-  { label: 'some name', distance: 0.5 },
-  { label: 'another name', distance: 1.75 },
-  { label: 'name 2', distance: 6.75 }
-]
-
-// L10 Norm Difference
+> // L10 Norm Difference
 > knn('L10', 3, neighbors, target)
 [
   { label: 'some name', distance: 1.0717734625362931 },
   { label: 'another name', distance: 3.0051723058500506 },
   { label: 'name 2', distance: 13.091355843137347 }
+]
+
+> // Pearson Correlation Distance
+> knn('pearson', 3, neighbors, target)
+[
+  { label: 'some name', distance: 0.010050506338833642 },
+  { label: 'another name', distance: 0.2254033307585166 },
+  { label: 'name 3', distance: 1.5685785754425927 }
 ]
 ```
 
@@ -266,7 +266,7 @@ Here is an example of the same data run against different distance functions
 ## Future Features
 
   * Plans to implement use of custom distance functions passed in by the user
-  * More native distance functions
+  * Even more native distance functions
   * Parallel computations across multiple targets
 
   Ideas and suggestions are welcome!
