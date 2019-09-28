@@ -15,7 +15,7 @@
   - Added new distances to readme
   - Added distance examples to readme
 
-### Fixes
+### Fixed
   - Added npm install neon and neon build --release steps to travis ci tasks to force building of native binaries even when the version is not increased (to prevent old native binaries from being downloaded).
 
 ## [2.4.0] - 2019-09-24 <a name="2.4.0"></a>
