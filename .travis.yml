@@ -29,6 +29,8 @@ before_install:
   - node -v
   - npm -v
   - npm install -g yarn
+  - npm install -g neon-cli
+  - npm run build
   - npm install
 
 script:

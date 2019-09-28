@@ -10,8 +10,8 @@
     "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
     "prepublishOnly": "neon clean",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "build": "neon clean && neon build",
-    "build-test": "neon clean && neon build && jest"
+    "build": "neon clean && neon build --release",
+    "build-test": "neon clean && neon build && npm test"
   },
   "jest": {
     "collectCoverage": true,
