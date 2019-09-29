@@ -23,9 +23,10 @@ fn get_distances<V: Send + Sync>
 }
 
 
-fn get_k<O: PartialOrd>(mut dists: Vec<(String, O)>, k: f64) -> Vec<(String, O)> {
+fn get_k<O: PartialOrd + Clone>(mut dists: Vec<(String, O)>, k: f64) -> Vec<(String, O)> {
   dists.sort_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap());
-  dists.into_iter()
+  dists.iter()
        .take(k as usize)
+       .cloned()
        .collect()
 }
