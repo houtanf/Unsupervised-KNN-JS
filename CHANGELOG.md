@@ -1,12 +1,19 @@
 # Changelog
 
   - [v2.5.0](#2.5.0)
+    - [v2.5.1](#2.5.1)
   - [v2.4.0](#2.4.0)
   - [v2.3.0](#2.3.0)
     - [v2.3.1](#2.3.1)
   - [v2.2.2](#2.2.2)
 
 # Changes
+
+
+## [2.5.1] - 2019-09-28 <a name="2.5.1"></a>
+### Changed
+  - Changed cloning of entire distance vector on iteration to cloneing only the k closests for better performance
+
 
 ## [2.5.0] - 2019-09-28 <a name="2.5.0"></a>
 ### Added
