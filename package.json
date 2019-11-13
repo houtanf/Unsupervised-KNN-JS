@@ -45,12 +45,12 @@
   "author": "houtanf",
   "license": "MIT",
   "dependencies": {
-    "neon-cli": "^0.3.1",
+    "neon-cli": "^0.3.3",
     "node-pre-gyp": "github:amilajack/node-pre-gyp",
     "node-pre-gyp-github": "^1.4.3"
   },
   "devDependencies": {
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.7",
     "jest": "^24.9.0",
     "jest-matcher-deep-close-to": "^1.3.0"
   },

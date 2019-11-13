@@ -11,8 +11,18 @@
 
 
 ## [2.5.1] - 2019-09-28 <a name="2.5.1"></a>
+### Added
+  - Support for Node 13
+
+### Removed
+  - Support for Node 9 & 11, if these are needed please submit an issue
+
 ### Changed
-  - Changed cloning of entire distance vector on iteration to cloneing only the k closests for better performance
+  - Changed cloning of entire distance vector on iteration when extracting the k closest neighbors, to cloneing only the k closests for better performance
+  - Updated Node dependencies
+  - Updated Rust dependencies
+    - Removed unused depricated Rust macro
+  - Edited ReadMe
 
 
 ## [2.5.0] - 2019-09-28 <a name="2.5.0"></a>

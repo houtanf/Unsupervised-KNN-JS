@@ -6,9 +6,7 @@
 [![Code Size][code-size]][github-url]
 [![License][license-img]][license-url]
 
-Node.JS package for fetching the k nearest neighbors of an input vector through distance calculations.
-
-Algorithm computations are implemented in Rust for high perfromance and easy parallelism.
+Node.JS package for computing the k nearest neighbors to an input vector using distance calculations. Computations are implemented in Rust for high perfromance and parallelism.
 
 ## Table of Contents
 
@@ -16,7 +14,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 
  - [Features](#features)
  - [Install](#install)
- - [Loading](#loading)
+ - [Import](#import)
  - [Use Example](#example)
  - [Usage](#usage)
     - [Parameters](#parameters)
@@ -32,9 +30,9 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 
   * Parallelized distance computations
   * Fast native system processing
-  * Several popular distance metrics
-  * Out of the box JavaScript support on Linux, OSX, and Windows
-  * Support for Node 8, 9, 10, 11, and 12
+  * 14 popular distance functions
+  * Out of the box support on Linux, OSX, and Windows
+  * Support for Node 8, 10, 12, and 13
 
 ## Install
 
@@ -42,7 +40,7 @@ Algorithm computations are implemented in Rust for high perfromance and easy par
 $ npm i unsupervised-knn-js
 ```
 
-## Loading
+## Import
 
 ```javascript
 const { knn } = require('unsupervised-knn-js')
@@ -87,13 +85,13 @@ The knn function takes 4 parameters:
             'mse'        // Mean-Squared-Error 
             'manhattan'  // Sum of Absolute Differences
             'ssd'        // Sum of Squared Differences
-            'chebyshev'  // L-Infinite Norm Difference
             'canberra'   // Weighted Manhatten Distance
             'hamming'    // Sum of Binary Differences
             'L3'         // L3 Norm Difference
             'L4'         // L4 Norm Difference
             'L5'         // L5 Norm Difference
             'L10'        // L10 Norm Difference
+            'chebyshev'  // L-Infinite Norm Difference
             'pearson'    // Pearson Correlation Distance
           ```
   1. K-Value
@@ -118,7 +116,7 @@ The knn function takes 4 parameters:
         ```
   1. Target
       * This is the vector for which to find the closest or most similar points to
-      * This should be a array of numbers
+      * This should be an array of numbers
 
 
 ### Return
@@ -197,14 +195,6 @@ Here is an example of the same data run against different distance functions
   { label: 'name 2', distance: 277 }
 ]
 
-> // Chebyshev
-> knn('chebyshev', 3, neighbors, target)
-[
-  { label: 'some name', distance: 1 },
-  { label: 'another name', distance: 3 },
-  { label: 'name 3', distance: 13 }
-]
-
 > // Canberra
 > knn('canberra', 3, neighbors, target)
 [
@@ -253,6 +243,14 @@ Here is an example of the same data run against different distance functions
   { label: 'name 2', distance: 13.091355843137347 }
 ]
 
+> // Chebyshev
+> knn('chebyshev', 3, neighbors, target)
+[
+  { label: 'some name', distance: 1 },
+  { label: 'another name', distance: 3 },
+  { label: 'name 3', distance: 13 }
+]
+
 > // Pearson Correlation Distance
 > knn('pearson', 3, neighbors, target)
 [
@@ -265,9 +263,8 @@ Here is an example of the same data run against different distance functions
 
 ## Future Features
 
-  * Plans to implement use of custom distance functions passed in by the user
   * Even more native distance functions
-  * Parallel computations across multiple targets
+  * Potential implemention of custom distance functions passed in by the user
 
   Ideas and suggestions are welcome!
 
