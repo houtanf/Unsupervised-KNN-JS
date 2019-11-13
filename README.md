@@ -32,7 +32,7 @@ Node.JS package for computing the k nearest neighbors to an input vector using d
   * Fast native system processing
   * 14 popular distance functions
   * Out of the box support on Linux, OSX, and Windows
-  * Support for Node 8, 9, 10, 11, 12, and 13
+  * Support for Node 8, 10, 12, and 13
 
 ## Install
 
