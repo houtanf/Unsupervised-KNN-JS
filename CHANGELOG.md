@@ -18,10 +18,10 @@
   - Support for Node 9 & 11, if these are needed please submit an issue
 
 ### Changed
-  - Changed cloning of entire distance vector on iteration when extracting the k closest neighbors, to cloneing only the k closests for better performance
+  - Changed cloning of entire distance vector on iteration when extracting the k closest neighbors, to cloning only the k closest for better performance
   - Updated Node dependencies
   - Updated Rust dependencies
-    - Removed unused depricated Rust macro
+    - Removed unused deprecated Rust macro
   - Edited ReadMe
 
 

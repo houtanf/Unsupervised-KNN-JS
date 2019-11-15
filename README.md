@@ -6,7 +6,7 @@
 [![Code Size][code-size]][github-url]
 [![License][license-img]][license-url]
 
-Node.JS package for computing the k nearest neighbors to an input vector using distance calculations. Computations are implemented in Rust for high perfromance and parallelism.
+Node.JS package for computing the k nearest neighbors to an input vector using distance calculations. Computations are implemented in Rust for high performance and parallelism.
 
 ## Table of Contents
 
@@ -264,7 +264,7 @@ Here is an example of the same data run against different distance functions
 ## Future Features
 
   * Even more native distance functions
-  * Potential implemention of custom distance functions passed in by the user
+  * Potential implementation of custom distance functions passed in by the user
 
   Ideas and suggestions are welcome!
 
